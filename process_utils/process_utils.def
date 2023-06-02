@@ -1,3 +1,5 @@
 LIBRARY   process_utils
 EXPORTS
+   start_by_name
+   kill_by_name
    get_pid_by_name

@@ -1,11 +1,18 @@
 #include <iostream>
 #include <vector>
 
-extern "C" std::vector<std::string> _split(const std::string input, const char ch);
+#include <windows.h>
 
-extern "C" void _ltrim(std::string &s, const char ch);
-extern "C" void _rtrim(std::string &s, const char ch);
-extern "C" void _trim(std::string &s, const char ch);
+extern "C" std::vector<std::string> _split(const std::string, const char);
 
-extern "C" std::string execute(const std::string raw_cmd);
+extern "C" void _ltrim(std::string &, const char);
+extern "C" void _rtrim(std::string &, const char);
+extern "C" void _trim(std::string &, const char);
+
+extern "C" BOOL _start(const std::string, STARTUPINFOW *, PROCESS_INFORMATION *);
+extern "C" std::string _execute(const std::string);
+
+// EXPORT
+extern "C" int start_by_name(const char *, const char *);
+extern "C" int kill_by_name(const char *);
 extern "C" int get_pid_by_name(const char *);
